@@ -6,20 +6,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - YOGO ABDOULAYE </title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f7f7f7; color: #333; }
-    header { background-color: #003366; color: white; padding: 40px 20px; text-align: center; }
-    h2 { color: #003366; text-align: center; }
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; background: white; margin-top: 20px; border-radius: 8px; }
-    .filter-btns { text-align: center; margin-bottom: 30px; }
-    .filter-btns button { background-color: #003366; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
-    .filter-btns button:hover { background-color: #005299; }
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .project-card { background: #fff; border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-    .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); }
-    .project-card img { width: 100%; height: 180px; object-fit: cover; }
-    .project-content { padding: 20px; }
-    .project-content h3 { margin: 0 0 10px; color: #003366; }
-    .project-content p { color: #555; font-size: 0.95rem; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background: white;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #003366;
+      text-align: center;
+    }
+    .project-section {
+      background: #f7f7f7;
+    }
+    .filter-btns {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .filter-btns button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-btns button:hover {
+      background-color: #005299;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 20px;
+    }
+    .project-content h3 {
+      margin: 0 0 10px;
+      color: #003366;
+    }
+    .project-content p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #005299;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
