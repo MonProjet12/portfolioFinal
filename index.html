@@ -6,6 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio -YOGO ABDOULAYE</title>
   <style>
+     /* Responsive mobile */
+  @media (max-width: 768px) {
+    h1, h2, h3 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-section,
+    .about-section,
+    .skills-section,
+    .project-section,
+    .gallery-section {
+      padding: 20px;
+    }
+
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 10px 0;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
