@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,134 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - YOGO ABDOULAYE </title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      background: white;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-    h2 {
-      color: #003366;
-      text-align: center;
-    }
-    .project-section {
-      background: #f7f7f7;
-    }
-    .filter-btns {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .filter-btns button {
-      background-color: #003366;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .filter-btns button:hover {
-      background-color: #005299;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-content {
-      padding: 20px;
-    }
-    .project-content h3 {
-      margin: 0 0 10px;
-      color: #003366;
-    }
-    .project-content p {
-      color: #555;
-      font-size: 0.95rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background-color: #003366;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background-color: #005299;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .social-icons a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f7f7f7; color: #333; }
+    header { background-color: #003366; color: white; padding: 40px 20px; text-align: center; }
+    h2 { color: #003366; text-align: center; }
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; background: white; margin-top: 20px; border-radius: 8px; }
+    .filter-btns { text-align: center; margin-bottom: 30px; }
+    .filter-btns button { background-color: #003366; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+    .filter-btns button:hover { background-color: #005299; }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .project-card { background: #fff; border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); }
+    .project-card img { width: 100%; height: 180px; object-fit: cover; }
+    .project-content { padding: 20px; }
+    .project-content h3 { margin: 0 0 10px; color: #003366; }
+    .project-content p { color: #555; font-size: 0.95rem; }
   </style>
 </head>
 <body>
-
 <header>
   <h1>Yogo Abdoulaye</h1>
   <p>Ingénieur IT - Support, Réseaux, Développement Web & Infographie</p>
 </header>
 
 <section>
-  <h2>À propos de moi</h2>
-  <p>Je suis YOGO ABDOULAYE, ingénieur IT spécialisé en support informatique, réseaux, développement web et infographie.
-  Passionné par les technologies, j’accompagne les entreprises et particuliers dans l’optimisation de leurs infrastructures 
-  informatiques et la conception de solutions digitales innovantes et performantes.</p>
-</section>
-
-<section class="project-section" id="projets">
   <h2>Projets Réalisés</h2>
   <div class="filter-btns">
     <button onclick="filterProjects('all')">Tous</button>
@@ -141,52 +37,137 @@
     <button onclick="filterProjects('reseau')">Réseau</button>
   </div>
   <div class="project-grid">
+
     <div class="project-card" data-category="web">
-      <img src="images/projet1.jpg" alt="Projet KAPACITY" />
+      <img src="https://i.postimg.cc/PvHN7sKB/projetcentre-Formation-1.jpg" alt="Centre de Formation" />
       <div class="project-content">
-        <h3>KAPACITY Cabinet Conseil</h3>
-        <p>Plateforme de gestion de clients et services développée sur mesure.</p>
+        <h3>Centre de Formation</h3>
+        <p>Conception d’un site pour centre de formation professionnelle.</p>
       </div>
     </div>
-    <div class="project-card" data-category="graphisme">
-      <img src="images/projet2.jpg" alt="Espace Multimédia Tita" />
-      <div class="project-content">
-        <h3>Espace Multimédia de Tita</h3>
-        <p>Création de supports visuels et développement d’un site vitrine.</p>
-      </div>
-    </div>
+    
     <div class="project-card" data-category="web">
-      <img src="[url=https://postimg.cc/vgrZf2MX][img]https://i.postimg.cc/vgrZf2MX/projet-Superfanz-1.jpg[/img][/url]" />
+      <img src="https://i.postimg.cc/Fd37Gsby/projetcentre-Formation-2.jpg" alt="Centre de Formation" />
       <div class="project-content">
-        <h3>SuperFanz</h3>
-        <p>Conception d’une plateforme communautaire pour créateurs de contenus.</p>
+        <h3>Centre de Formation</h3>
+        <p>Page d’accueil et présentation des filières.</p>
       </div>
     </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/hJHX97m4/projetcentre-Formation-3.jpg" alt="Centre de Formation" />
+      <div class="project-content">
+        <h3>Centre de Formation</h3>
+        <p>Gestion des inscriptions en ligne.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/PvMNs3RN/projethemeroide1-1.jpg" alt="Santé Hémorroïdes" />
+      <div class="project-content">
+        <h3>Santé Hémorroïdes</h3>
+        <p>Conception d’un site d’information santé.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/t7dsxJ4y/projethemeroide1-2.jpg" alt="Santé Hémorroïdes" />
+      <div class="project-content">
+        <h3>Santé Hémorroïdes</h3>
+        <p>Interface mobile responsive.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/5XyyTmqN/projet-ISI1-1.jpg" alt="ISI" />
+      <div class="project-content">
+        <h3>ISI</h3>
+        <p>Site pour institut supérieur privé ISI.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/SnPRhzDL/projet-ISI1-2.jpg" alt="ISI" />
+      <div class="project-content">
+        <h3>ISI</h3>
+        <p>Présentation des formations et équipe pédagogique.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/JGPtpFX2/projet-ISI1-3.jpg" alt="ISI" />
+      <div class="project-content">
+        <h3>ISI</h3>
+        <p>Design adaptatif pour tous supports.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/CzFzH0R8/projet-ISI1-4.jpg" alt="ISI" />
+      <div class="project-content">
+        <h3>ISI</h3>
+        <p>Pages informatives avec animations visuelles.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/67G355mk/projetjiangang-2.jpg" alt="Jiangang" />
+      <div class="project-content">
+        <h3>Jiangang</h3>
+        <p>Site d’entreprise pour promotion de services médicaux.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/vgrZf2MX/projet-Superfanz-1.jpg" alt="Superfanz" />
+      <div class="project-content">
+        <h3>Superfanz</h3>
+        <p>Développement de la plateforme superfanz.online</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="web">
+      <img src="https://i.postimg.cc/LYKsqFdn/projet-Superfanz-2.jpg" alt="Superfanz" />
+      <div class="project-content">
+        <h3>Superfanz</h3>
+        <p>Conception d’interfaces web dynamiques et animées.</p>
+      </div>
+    </div>
+    
     <div class="project-card" data-category="reseau">
-      <img src="images/projet4.jpg" alt="Infrastructure Réseau" />
+      <img src="https://i.postimg.cc/5QfN352J/projet-Tropicom-1.jpg" alt="Tropicom" />
       <div class="project-content">
-        <h3>Déploiement Réseau TROPICOM</h3>
-        <p>Installation de points d’accès, maintenance et sécurisation du réseau.</p>
+        <h3>Tropicom</h3>
+        <p>Support IT, maintenance VSAT et infographie pour Tropicom.</p>
       </div>
     </div>
-  </div>
-  <div style="text-align: center; margin-top: 40px;">
-    <button onclick="scrollToContact()" style="padding: 12px 30px; background-color: #003366; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
-      Me contacter
-    </button>
+    
+    <div class="project-card" data-category="graphisme">
+      <img src="https://i.postimg.cc/4Hw4FKY9/projet-Tropicom-2.jpg" alt="Tropicom" />
+      <div class="project-content">
+        <h3>Tropicom</h3>
+        <p>Création de supports marketing numériques.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="reseau">
+      <img src="https://i.postimg.cc/jC6XvyhF/projet-Tropicom-3.jpg" alt="Tropicom" />
+      <div class="project-content">
+        <h3>Tropicom</h3>
+        <p>Installation de points d’accès et dépannage réseau.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-category="reseau">
+      <img src="https://i.postimg.cc/QVZmpfc7/projet-Tropicom-4.jpg" alt="Tropicom" />
+      <div class="project-content">
+        <h3>Tropicom</h3>
+        <p>Gestion et maintenance informatique globale.</p>
+      </div>
+    </div>
+    
   </div>
 </section>
-
-<section id="contact" style="padding: 60px 20px; background: #ffffff; max-width: 1100px; margin: 40px auto; border-radius: 8px;">
-  <h2 style="text-align: center;">Contact</h2>
-  <form action="https://formspree.io/f/manjneqn" method="POST" style="max-width: 600px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
-  <input type="text" name="name" placeholder="Votre nom" required>
-  <input type="email" name="email" placeholder="Votre email" required>
-  <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-  <button type="submit">Envoyer</button>
-</form>
-</section>
-
 <footer>
   <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
   <div class="social-icons">
@@ -195,7 +176,6 @@
     <a href="#">WhatsApp</a>
   </div>
 </footer>
-
 <script>
   function filterProjects(category) {
     const cards = document.querySelectorAll('.project-card');
@@ -203,17 +183,6 @@
       card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
     });
   }
-
-  function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function sendForm() {
-    alert("Merci ! Votre message a bien été envoyé.");
-    document.getElementById("contact-form").reset();
-    return false;
-  }
 </script>
-
 </body>
 </html>
