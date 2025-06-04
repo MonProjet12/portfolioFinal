@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Yogo Abdoulaye</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background: white;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #003366;
+      text-align: center;
+    }
+    .project-section {
+      background: #f7f7f7;
+    }
+    .filter-btns {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .filter-btns button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-btns button:hover {
+      background-color: #005299;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 20px;
+    }
+    .project-content h3 {
+      margin: 0 0 10px;
+      color: #003366;
+    }
+    .project-content p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #005299;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Yogo Abdoulaye</h1>
+  <p>Ingénieur IT - Support, Réseaux, Développement Web & Infographie</p>
+</header>
+
+<section>
+  <h2>À propos de moi</h2>
+  <p>Je suis YOGO ABDOULAYE, ingénieur IT spécialisé en support informatique, réseaux, développement web et infographie.
+  Passionné par les technologies, j’accompagne les entreprises et particuliers dans l’optimisation de leurs infrastructures 
+  informatiques et la conception de solutions digitales innovantes et performantes.</p>
+</section>
+
+<section class="project-section" id="projets">
+  <h2>Projets Réalisés</h2>
+  <div class="filter-btns">
+    <button onclick="filterProjects('all')">Tous</button>
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('graphisme')">Graphisme</button>
+    <button onclick="filterProjects('reseau')">Réseau</button>
+  </div>
+  <div class="project-grid">
+    <div class="project-card" data-category="web">
+      <img src="images/projet1.jpg" alt="Projet KAPACITY" />
+      <div class="project-content">
+        <h3>KAPACITY Cabinet Conseil</h3>
+        <p>Plateforme de gestion de clients et services développée sur mesure.</p>
+      </div>
+    </div>
+    <div class="project-card" data-category="graphisme">
+      <img src="images/projet2.jpg" alt="Espace Multimédia Tita" />
+      <div class="project-content">
+        <h3>Espace Multimédia de Tita</h3>
+        <p>Création de supports visuels et développement d’un site vitrine.</p>
+      </div>
+    </div>
+    <div class="project-card" data-category="web">
+      <img src="images/projet3.jpg" alt="SuperFanz" />
+      <div class="project-content">
+        <h3>SuperFanz</h3>
+        <p>Conception d’une plateforme communautaire pour créateurs de contenus.</p>
+      </div>
+    </div>
+    <div class="project-card" data-category="reseau">
+      <img src="images/projet4.jpg" alt="Infrastructure Réseau" />
+      <div class="project-content">
+        <h3>Déploiement Réseau TROPICOM</h3>
+        <p>Installation de points d’accès, maintenance et sécurisation du réseau.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 40px;">
+    <button onclick="scrollToContact()" style="padding: 12px 30px; background-color: #003366; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+      Me contacter
+    </button>
+  </div>
+</section>
+
+<section id="contact" style="padding: 60px 20px; background: #ffffff; max-width: 1100px; margin: 40px auto; border-radius: 8px;">
+  <h2 style="text-align: center;">Contact</h2>
+  <form id="contact-form" onsubmit="return sendForm()" style="max-width: 600px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre email" required>
+    <textarea placeholder="Votre message" rows="5" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
+  <div class="social-icons">
+    <a href="#">LinkedIn</a> | 
+    <a href="#">GitHub</a> | 
+    <a href="#">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+  function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+    });
+  }
+
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function sendForm() {
+    alert("Merci ! Votre message a bien été envoyé.");
+    document.getElementById("contact-form").reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
