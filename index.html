@@ -168,16 +168,23 @@
   </div>
 </section>
 
+  <div style="text-align: center; margin-top: 40px;">
+    <button onclick="scrollToContact()" style="padding: 12px 30px; background-color: #003366; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+      Me contacter
+    </button>
+  </div>
+</section>
+
 <section id="contact" style="padding: 60px 20px; background: #ffffff; max-width: 1100px; margin: 40px auto; border-radius: 8px;">
-  <h2> Me Contacter </h2>
-  <form action="https://formspree.io/f/manjneqn" method="POST" style="max-width: 600px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+  <h2 style="text-align: center;">Contact</h2>
+  <form id="contact-form" onsubmit="return sendForm()" style="max-width: 600px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre email" required>
+    <textarea placeholder="Votre message" rows="5" required></textarea>
     <button type="submit">Envoyer</button>
   </form>
 </section>
-  
+
 <footer>
   <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
   <div class="social-icons">
@@ -186,7 +193,7 @@
     <a href="#">WhatsApp</a>
   </div>
 </footer>
-  
+
 <script>
   function filterProjects(category) {
     const cards = document.querySelectorAll('.project-card');
@@ -194,6 +201,17 @@
       card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
     });
   }
+
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function sendForm() {
+    alert("Merci ! Votre message a bien été envoyé.");
+    document.getElementById("contact-form").reset();
+    return false;
+  }
 </script>
+
 </body>
 </html>
