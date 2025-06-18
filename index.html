@@ -249,6 +249,64 @@
 
 .project-content .btn:hover {
   background-color: #0056b3;
+  
+.project-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.project-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.project-content {
+  flex: 2 1 500px;
+  padding: 2rem;
+}
+
+.project-content h2 {
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.project-content p {
+  margin: 0.5rem 0;
+}
+
+.project-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.project-content .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.project-content .btn:hover {
+  background-color: #0056b3;
+}
+ 
 }  
   </style>
 </head>
@@ -395,29 +453,36 @@
       <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique pour un projet de Réseau Informatique</p>
     </div>
   
-    <section class="project-card">
-  <div class="project-image">
-<img src="https://i.imgur.com/XcZEThJ.png" alt="Maquette UI/UX FastCare">
-  </div>
-  <div class="project-content">
-    <h2>FastCare – Maquette UI/UX pour Application Mobile</h2>
-    <p><strong>Outil utilisé :</strong> Figma</p>
-    <p><strong>Domaine :</strong> Santé / Médical</p>
-    <p><strong>Date :</strong> Février 2021</p>
-    <p><strong>Description :</strong> Conception d'une interface mobile intuitive permettant de rechercher un médecin, prendre rendez-vous, consulter en ligne et gérer ses informations médicales. La maquette comprend les écrans de connexion, création de profil, recherche, calendrier, rappel de rendez-vous et messagerie.</p>
-    <ul>
-      <li>Création de compte et connexion (Google / Facebook)</li>
-      <li>Réservation de créneaux avec des médecins par spécialité</li>
-      <li>Gestion du dossier médical et rappels</li>
-      <li>Consultation en ligne (médecin en direct)</li>
-    </ul>
-    <a
-        href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW/Untitled?page-id=0%3A1&node-id=2-346&p=f&viewport=-180%2C140%2C0.27&t=yHG2daSocKiVuSTG-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2%3A346&show-proto-sidebar=1"
-        target="_blank"
-        class="btn"
-      >
-  Voir la maquette interactive
-</a>
+   <div class="projects-grid">
+  <!-- Projet 1 : FastCare -->
+  <section class="project-card">
+    <div class="project-image">
+      <img src="https://i.imgur.com/XcZEThJ.png" alt="Maquette UI FastCare">
+    </div>
+    <div class="project-content">
+      <h2>FastCare – Application médicale</h2>
+      <p><strong>Outil :</strong> Figma</p>
+      <p><strong>Date :</strong> Février 2021</p>
+      <p>Interface mobile pour consultations médicales, prise de rendez-vous et gestion de dossier patient.</p>
+      <a href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW/Untitled?page-id=0%3A1&node-id=2-346&..." target="_blank" class="btn">Voir la maquette</a>
+    </div>
+  </section>
+
+  <!-- Projet 2 : FASsHOP -->
+  <section class="project-card">
+    <div class="project-image">
+      <img src="https://i.imgur.com/jPx3Jwj.png" alt="Maquette UI FASsHOP">
+    </div>
+    <div class="project-content">
+      <h2>FASsHOP – Boutique en ligne</h2>
+      <p><strong>Outil :</strong> Figma</p>
+      <p><strong>Date :</strong> 18 juin 2025</p>
+      <p>Application eCommerce simple et sécurisée pour l’achat de vêtements en ligne.</p>
+      <a href="LIEN_VERS_LA_MAQUETTE_FIGMA" target="_blank" class="btn">Voir la maquette</a>
+    </div>
+  </section>
+</div>
+
 
   </div>
 </section>
