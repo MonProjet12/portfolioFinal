@@ -1,660 +1,432 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio -YOGO ABDOULAYE</title>
-  <style>
-     /* Responsive mobile */
-  @media (max-width: 768px) {
-    h1, h2, h3 {
-      font-size: 1.3rem;
-      text-align: center;
-    }
+  <meta name="description" content="Portfolio professionnel de Yogo Abdoulaye - Développement web, IT, design et marketing digital.">
+  <meta name="author" content="Yogo Abdoulaye">
+  <title>Portfolio - YOGO ABDOULAYE</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <style>
+        :root {
+        --primary: #003366;
+        --secondary: #007BFF;
+        --bg-light: #f7f7f7;
+        --text: #333;
+        }
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+        body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text);
+        line-height: 1.6;
+        }
+        header {
+        background-color: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 3rem 1rem;
+        }
+        h1 {
+        font-size: 2.5rem;
+        }
+        h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--primary);
+        }
+        section {
+        padding: 60px 20px;
+        max-width: 1100px;
+        margin: auto;
+        background: white;
+        border-radius: 8px;
+        margin-top: 30px;
+        }
+        ul {
+        padding-left: 1.2rem;
+        }
+        .badge {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin: 4px;
+        }
+        .project-grid, .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        }
+        .project-card, .video-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        transition: transform 0.3s;
+        }
+        .project-card:hover, .video-card:hover {
+        transform: translateY(-5px);
+        }
+        .project-card img, .gallery-grid img, .video-card iframe {
+        width: 100%;
+        display: block;
+        border-radius: 10px 10px 0 0;
+        }
+        .project-content, .video-content {
+        padding: 1rem;
+        }
+        form {
+        max-width: 600px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        }
+        input, textarea {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        }
+        button {
+        padding: 12px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        }
+        button:hover {
+        background-color: #005299;
+        }
+        footer {
+        background-color: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+        }
+        .social-icons a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+        }
+        .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: auto;
+        }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-      text-align: center;
-    }
+        .gallery-item {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        }
 
-    .gallery-grid {
-      grid-template-columns: 1fr;
-    }
+        .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
 
-    .contact-section,
-    .about-section,
-    .skills-section,
-    .project-section,
-    .gallery-section {
-      padding: 20px;
-    }
+        .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        }
 
-    nav {
-      flex-direction: column;
-      align-items: center;
-    }
+        /* Lightbox */
+        .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.9);
+        }
 
-    nav a {
-      margin: 10px 0;
-    }
+        .lightbox-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 80vh;
+        animation: zoom 0.3s ease-in-out;
+        }
 
-    footer {
-      font-size: 0.9rem;
-      text-align: center;
-    }
-  }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      background: white;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-    h2 {
-      color: #003366;
-      text-align: center;
-    }
-    .project-section {
-      background: #f7f7f7;
-    }
-    .filter-btns {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .filter-btns button {
-      background-color: #003366;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .filter-btns button:hover {
-      background-color: #005299;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-content {
-      padding: 20px;
-    }
-    .project-content h3 {
-      margin: 0 0 10px;
-      color: #003366;
-    }
-    .project-content p {
-      color: #555;
-      font-size: 0.95rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background-color: #003366;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background-color: #005299;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .social-icons a:hover {
-      text-decoration: underline;
-    }
-       body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-    h2 {
-      text-align: center;
-      color: #003366;
-    }
-    button {
-      padding: 10px 15px;
-      border: none;
-      background-color: #003366;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #005599;
-    }
-    .filter-item {
-      animation: fadeInUp 0.6s ease both;
-      transition: transform 0.3s ease;
-    }
-    .filter-item:hover {
-      transform: scale(1.02);
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .project-card {
-  display: flex;
-  flex-wrap: wrap;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin: 2rem 0;
-  overflow: hidden;
-}
+        @keyframes zoom {
+        from {transform: scale(0.7);}
+        to {transform: scale(1);}
+        }
 
-.project-image {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
+        .close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        }
 
-.project-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.project-content {
-  flex: 2 1 500px;
-  padding: 2rem;
-}
-
-.project-content h2 {
-  margin-bottom: 1rem;
-  color: #1a202c;
-}
-
-.project-content p {
-  margin: 0.5rem 0;
-}
-
-.project-content ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-}
-
-.project-content .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #007BFF;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.project-content .btn:hover {
-  background-color: #0056b3;
-  
-.project-card {
-  display: flex;
-  flex-wrap: wrap;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin: 2rem 0;
-  overflow: hidden;
-}
-
-.project-image {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
-.project-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px 0 0 12px;
-}
-
-.project-content {
-  flex: 2 1 500px;
-  padding: 2rem;
-}
-
-.project-content h2 {
-  margin-bottom: 1rem;
-  color: #1a202c;
-}
-
-.project-content p {
-  margin: 0.5rem 0;
-}
-
-.project-content ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-}
-
-.project-content .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #007BFF;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.project-content .btn:hover {
-  background-color: #0056b3;
-}
- 
-}  
+        .close:hover {
+        color: #ccc;
+        }
   </style>
+  
 </head>
 <body>
-<header>
-  <h1>YOGO ABDOULAYE</h1>
-  <p>Ingénieur IT - Support, Réseaux, Développement Web, Infographie & Marketing Digital</p>
+  <!-- Hero Header Modernisé -->
+<header style="background: linear-gradient(to right, #003366, #005fa3); color: white; padding: 80px 20px; text-align: center;">
+  <h1 style="font-size: 2.8rem; margin-bottom: 15px; animation: fadeInDown 1s ease;">👨‍💻 YOGO ABDOULAYE</h1>
+  <p style="font-size: 1.3rem; max-width: 700px; margin: auto; line-height: 1.6; animation: fadeInUp 1s ease;">Ingénieur IT – Expert en Support, Réseaux, Développement Web, Infographie & Marketing Digital</p>
 </header>
-<section id="competences" style="padding: 60px 20px; max-width: 1100px; margin: 0 auto; background: #f9f9f9; border-radius: 8px;">
-  <h2 style="text-align: center;">MES COMPETENCES</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+
+<!-- Compétences Modernisées -->
+<section id="competences" style="padding: 60px 20px; max-width: 1100px; margin: 40px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+  <h2 style="text-align: center; font-size: 2rem; color: #003366; margin-bottom: 40px;">✨ MES COMPÉTENCES</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
     
-    <div>
-      <h3 style="color: #003366;">💻 Informatique & Développement Web</h3>
-      <ul>
-        <li>Maintenance informatique et support IT</li>
-        <li>HTML / CSS / JavaScript / PHP / MySQL</li>
-        <li>WordPress, création de sites vitrines</li>
-        <li>Déploiement de solutions web sur mesure</li>
+    <div style="background: #f4faff; padding: 20px; border-radius: 10px; transition: 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 style="color: #003366; margin-bottom: 10px;">💻 Informatique & Développement Web</h3>
+      <ul style="padding-left: 20px; color: #333; line-height: 1.6;">
+        <li>Support IT & maintenance</li>
+        <li>HTML / CSS / JS / PHP / MySQL</li>
+        <li>WordPress, sites vitrines</li>
+        <li>Solutions web personnalisées</li>
       </ul>
     </div>
 
-    <div>
-      <h3 style="color: #003366;">🌐 Réseaux & Sécurité</h3>
-      <ul>
-        <li>Configuration Mikrotik, Cisco, VSAT</li>
-        <li>Détection de pannes et déploiement réseau</li>
-        <li>Utilisation de ESET Remote Admin</li>
-        <li>Surveillance et accès sécurisé</li>
+    <div style="background: #f4faff; padding: 20px; border-radius: 10px; transition: 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 style="color: #003366; margin-bottom: 10px;">🌐 Réseaux & Sécurité</h3>
+      <ul style="padding-left: 20px; color: #333; line-height: 1.6;">
+        <li>Mikrotik, Cisco, VSAT</li>
+        <li>Pannes & déploiement réseau</li>
+        <li>ESET Remote Admin</li>
+        <li>Cameras de Surveillance & sécurité électronique</li>
       </ul>
     </div>
 
-    <div>
-      <h3 style="color: #003366;">🎨 Infographie & Design</h3>
-      <ul>
-        <li>Canva, Photoshop, Illustrator</li>
-        <li>Création de supports visuels pro</li>
-        <li>Affiches, logos, brochures, flyers</li>
+    <div style="background: #f4faff; padding: 20px; border-radius: 10px; transition: 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 style="color: #003366; margin-bottom: 10px;">🎨 Infographie & Design</h3>
+      <ul style="padding-left: 20px; color: #333; line-height: 1.6;">
+        <li>Canva, Suite ADOBE</li>
+        <li>Supports visuels pros</li>
+        <li>Affiches, logos, flyers</li>
       </ul>
     </div>
 
-    <div>
-      <h3 style="color: #003366;">📢 Marketing Digital</h3>
-      <ul>
-        <li>Community management (Facebook, Insta)</li>
-        <li>Campagnes publicitaires (Meta Ads)</li>
+    <div style="background: #f4faff; padding: 20px; border-radius: 10px; transition: 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 style="color: #003366; margin-bottom: 10px;">📢 Marketing Digital</h3>
+      <ul style="padding-left: 20px; color: #333; line-height: 1.6;">
+        <li>Community management</li>
+        <li>Publicité Meta Ads</li>
         <li>Emailing (Mailchimp)</li>
-        <li>Suivi KPI, engagement & conversion</li>
+        <li>Suivi KPIs & conversions</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<section id="projets" style="padding: 60px 20px; max-width: 1100px; margin: auto;">
-  <h2>QUELQUES PROJETS REALISEES</h2>
-
-  <!-- Boutons de filtre -->
-  <div style="text-align:center; margin-bottom: 30px;">
-    <button onclick="filterSelection('all')" style="margin: 5px;">Tout afficher</button>
-    <button onclick="filterSelection('web design')" style="margin: 5px;">Web Design</button>
-    <button onclick="filterSelection('marketing')" style="margin: 5px;">Marketing</button>
-    <button onclick="filterSelection('infographie')" style="margin: 5px;">Infographie</button>
-    <button onclick="filterSelection('réseau')" style="margin: 5px;">Réseau</button>
-    <button onclick="filterSelection('ui/ux')" style="margin: 5px;">UI/UX</button>
-  </div>
-
-  <!-- Grille de projets -->
-  <div class="filter-container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
-
-    <div class="filter-item web design" style="text-align:center;">
-      <img src="https://i.imgur.com/uwy6JzT.jpg" alt="web design" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Web Design</p>
-    </div>
-    
-    <div class="filter-item marketing" style="text-align:center;">
-      <img src="https://i.imgur.com/yypq8nY.jpg" alt="marketing" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Marketing</p>
-    </div>
-    
-    <div class="filter-item infographie" style="text-align:center;">
-      <img src="https://i.imgur.com/d8DOGQJ.jpg" alt="infographie" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Infographie</p>
-    </div>
-    
-    <div class="filter-item réseau" style="text-align:center;">
-      <img src="https://i.imgur.com/tsdXW1M.jpg" alt="réseau" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Réseau Informatique(VSAT)</p>
-    </div>
-    
-    <div class="filter-item ui/ux" style="text-align:center;">
-      <img src="https://i.imgur.com/lOr35FD.jpg" alt="ui/ux" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique</p>
-    </div>
-    
-    <div class="filter-item web design" style="text-align:center;">
-      <img src="https://i.imgur.com/sTYJAuG.jpg" alt="web design" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Web Design</p>
-    </div>
-    
-    <div class="filter-item marketing" style="text-align:center;">
-      <img src="https://i.imgur.com/tuTaQnc.jpg" alt="marketing" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;"> Projet de Conception graphique et Marketing Digital</p>
-    </div>
-    
-    <div class="filter-item infographie" style="text-align:center;">
-      <img src="https://i.imgur.com/RZ7VAej.jpg" alt="infographie" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Infographie</p>
-    </div>
-    
-    <div class="filter-item réseau" style="text-align:center;">
-      <img src="https://i.imgur.com/MAfKQLV.jpg" alt="réseau" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Création de visuel pour un projet d'un site pour les créateurs de contenus</p>
-    </div>
-    <div class="filter-item ui/ux" style="text-align:center;">
-      <img src="https://i.imgur.com/vN2Mm45.jpg" alt="ui/ux" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Projet de paris sport</p>
-    </div>
+<!-- Animations -->
 
 
-    
-    <div class="filter-item ui/ux" style="text-align:center;">
-      <img src="https://i.imgur.com/oAYX3I8.jpg" alt="ui/ux" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Ui/Ux</p>
-    </div>
-    
-    <div class="filter-item web design" style="text-align:center;">
-      <img src="https://i.imgur.com/1n1Ss0f.jpg" alt="web design" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Web Design</p>
-    </div>
-    
-    <div class="filter-item marketing" style="text-align:center;">
-      <img src="https://i.imgur.com/Tol8OgA.jpg" alt="marketing" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique et Marketing Digital</p>
-    </div>
-    
-    <div class="filter-item infographie" style="text-align:center;">
-      <img src="https://i.imgur.com/y9WBJlA.jpg" alt="infographie" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Infographie</p>
-    </div>
-    
-    <div class="filter-item réseau" style="text-align:center;">
-      <img src="https://i.imgur.com/aoqVTOg.jpg" alt="réseau" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique pour un projet de Réseau Informatique</p>
-    </div>
-
-    <div class="filter-item web design" style="text-align:center;">
-      <img src="https://i.imgur.com/0hwwpAO.jpg" alt="web design" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Web Design</p>
-    </div>
-    
-    <div class="filter-item marketing" style="text-align:center;">
-      <img src="https://i.imgur.com/GFQ1TPr.jpg" alt="marketing" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique et Marketing Digital</p>
-    </div>
-    
-    <div class="filter-item infographie" style="text-align:center;">
-      <img src="https://i.imgur.com/VmikxMT.jpg" alt="infographie" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Infographie</p>
-    </div>
-    
-    <div class="filter-item réseau" style="text-align:center;">
-      <img src="https://i.imgur.com/TcMXpFW.jpg" alt="réseau" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Conception Graphique pour un projet de Réseau Informatique</p>
-    </div>
-
-    <div class="filter-item ui/ux" style="text-align:center;">
-      <img src="https://i.imgur.com/MFG5atw.jpg" alt="ui/ux" style="width:100%; border-radius:8px;">
-      <p style="margin-top:10px; color:#003366; font-weight:bold;">Ui/Ux</p>
-    </div>
-     
-  </div>
-</section>
- <div class="projects-grid">
-  <!-- Projet 1 : FastCare -->
-  <section class="project-card">
-    <div class="project-image">
-      <img src="https://i.imgur.com/XcZEThJ.png" alt="Maquette UI/UX FastCare">
-    </div>
-    <div class="project-content">
-      <h2>FastCare – Application médicale</h2>
-      <p><strong>Outil :</strong> Figma</p>
-      <p><strong>Date :</strong> Juin 2025</p>
-      <p>Interface mobile pour consultations médicales, prise de rendez-vous et gestion de dossier patient.</p>
-      <a href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW/Untitled?page-id=0%3A1&node-id=2-346&..." target="_blank" class="btn">Voir la maquette</a>
+  <section>
+    <h2>Projets Réalisés</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://i.imgur.com/XcZEThJ.png" alt="FastCare">
+        <div class="project-content">
+          <h3>FastCare – Application médicale</h3>
+          <p>Outil : Figma | Juin 2025</p>
+          <p>Interface mobile pour consultations médicales et gestion de patients.</p>
+          <a href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW" target="_blank">Voir la maquette</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://i.imgur.com/jPx3Jwj.png" alt="FASsHOP">
+        <div class="project-content">
+          <h3>FASsHOP – Boutique en ligne</h3>
+          <p>Outil : Figma | Juin 2025</p>
+          <p>eCommerce simple et sécurisé pour l’achat de vêtements en ligne.</p>
+          <a href="https://www.figma.com/design/6BQNteoi1zuk6yDbw49FPe/ProjetEcommerceMode" target="_blank">Voir la maquette</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Projet 2 : FASsHOP -->
-  <section class="project-card">
-    <div class="project-image">
-      <img src="https://i.imgur.com/jPx3Jwj.png" alt="Maquette UI/UX FASsHOP">
-    </div>
-    <div class="project-content">
-      <h2>FASsHOP – Boutique en ligne</h2>
-      <p><strong>Outil :</strong> Figma</p>
-      <p><strong>Date :</strong>  juin 2025</p>
-      <p>Application eCommerce simple et sécurisée pour l’achat de vêtements en ligne.</p>
-      <a href="https://www.figma.com/design/6BQNteoi1zuk6yDbw49FPe/ProjetEcommerceMode?node-id=0-1&t=x3SXbPdAU1osZwcN-1" target="_blank" class="btn">Voir la maquette</a>
-    </div>
+ <section id="videos">
+    <h2>Montages Vidéos</h2>
   </section>
-</div>
-  
-<section id="galerie" style="padding:60px 20px; max-width:1100px; margin:auto;">
-  <h2 style="text-align:center;">GALERIE</h2>
-  <p style="text-align:center; color:#666;">Cliquez sur une image pour l’agrandir</p>
+   <section id="videos" style="max-width: 1100px; margin: 50px auto;">
+  <h2 style="text-align:center; color:#003366;">🎥 Démo Vidéo</h2>
 
-  <div class="gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px;" id="gallery">
-    <!-- Images visibles -->
-    <img src="https://i.imgur.com/uwy6JzT.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/yypq8nY.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/d8DOGQJ.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/tsdXW1M.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/lOr35FD.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/sTYJAuG.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/tuTaQnc.jpg" onclick="openLightbox(this.src)">
-    <img src="https://i.imgur.com/RZ7VAej.jpg" onclick="openLightbox(this.src)">
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+    
+    <!-- Vidéo 1 -->
+    <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/L1LLu3Cxltc"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Présentation FastCare</p>
+    </div>
 
-    <!-- Images masquées -->
-    <div id="more-images" style="display: none;">
-      <img src="https://i.imgur.com/MAfKQLV.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/oAYX3I8.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/1n1Ss0f.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/Tol8OgA.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/y9WBJlA.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/aoqVTOg.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/MFG5atw.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/0hwwpAO.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/GFQ1TPr.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/VmikxMT.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/TcMXpFW.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/vN2Mm45.jpg" onclick="openLightbox(this.src)">
-       <img src="https://i.imgur.com/vN2Mm45.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/K6dIiRi.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/BFKuV4F.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/djRu9LZ.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/uErjfyS.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/J1J0lj3.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/1kaoLnZ.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/pFvP5x4.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/sDS7ypb.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/Bg9OXmE.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/ufntvcY.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/xUitePy.jpg" onclick="openLightbox(this.src)">
-      <img src="https://i.imgur.com/vScBQnZ.jpg" onclick="openLightbox(this.src)">
+    <!-- Vidéo 2 -->
+    <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/s0yc_rcyI8I"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
+    </div>
+
+        <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://youtube.com/embed/fYDodP37uoM"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
+    </div>
+        <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/K7uSPWNmHBU"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
+    </div>
+        <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/zYm3HcIycVc"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
+    </div>
+
+        <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/QyqmQDWOHyg"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Présentation FASsHOP</p>
+    </div>
+
+        <div style="flex: 1 1 500px; max-width: 500px;">
+      <iframe width="100%" height="280"
+              src="https://www.youtube.com/embed/w5AJKRwsZZ0"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+      <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Présentation FASsHOP</p>
     </div>
   </div>
 </section>
-  <button class="btn-more" onclick="showMore()" style="display:block; margin:30px auto; padding:10px 20px; background-color:#003366; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer;">
-    Voir plus
-  </button>
-<!-- Lightbox (plein écran au clic) -->
-<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:90%; height:90%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:1000;">
-  <img id="lightbox-img" src="" alt="Image agrandie" style="max-width:90%; max-height:90%; border-radius:10px;">
-</div>
-
-<!-- Scripts -->
-<script>
-  function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
-  }
-
-  function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-  }
-
-  function showMore() {
-    document.getElementById("more-images").style.display = "grid";
-    document.querySelector(".btn-more").style.display = "none";
-  }
-</script>
 
 
-<!-- Script de filtrage -->
-<script>
-function filterSelection(category) {
-  const items = document.getElementsByClassName("filter-item");
-  if (category === "all") category = "";
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    item.style.display = item.className.indexOf(category) > -1 || category === "" ? "block" : "none";
-  }
-}
-window.onload = () => filterSelection('all');
-</script>
-
-
-
-<!-- Lightbox -->
-<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:1000;">
-  <img id="lightbox-img" src="" alt="Image agrandie" style="max-width:98%; max-height:98%;">
-</div>
-
-<!-- Script JavaScript -->
-<script>
-  function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
-  }
-  function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-  }
-</script>
-  <div style="text-align: center; margin-top: 40px;">
-    <button onclick="scrollToContact()" style="padding: 12px 30px; background-color: #003366; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
-     ME CONTACTER 
-    </button>
+  <!-- Galerie avec lightbox interne -->
+<section id="galerie" style="padding: 60px 20px; background: #f5e1ca;">
+  <h2 style="text-align: center; color: #003366; font-size: 2rem; margin-bottom: 40px;">🎞️ Galerie</h2>
+  <h3>Quelques Réalisations</h3>
+  <p>cliquer sur l'image pour bien voir</p>
+  <div class="gallery">
+    <!-- Les images -->
+    <div class="gallery-item"><img src="https://i.imgur.com/uwy6JzT.jpg" alt="Image 1"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/yypq8nY.jpg" alt="Image 2"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/d8DOGQJ.jpg" alt="Image 3"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/tsdXW1M.jpg" alt="Image 4"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/lOr35FD.jpg" alt="Image 5"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/sTYJAuG.jpg" alt="Image 6"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/tuTaQnc.jpg" alt="Image 7"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/RZ7VAej.jpg" alt="Image 8"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/MAfKQLV.jpg" alt="Image 9"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/vN2Mm45.jpg" alt="Image 10"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/oAYX3I8.jpg" alt="Image 11"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/1n1Ss0f.jpg" alt="Image 12"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/Tol8OgA.jpg" alt="Image 13"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/y9WBJlA.jpg" alt="Image 14"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/aoqVTOg.jpg" alt="Image 15"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/0hwwpAO.jpg" alt="Image 16"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/GFQ1TPr.jpg" alt="Image 17"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/VmikxMT.jpg" alt="Image 18"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/TcMXpFW.jpg" alt="Image 19"></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/MFG5atw.jpg" alt="Image 20"></div>
   </div>
 </section>
 
-<section id="contact" style="padding: 60px 20px; background: #ffffff; max-width: 1100px; margin: 40px auto; border-radius: 8px;">
-  <form action="https://formspree.io/f/manjneqn"method="POST" style="max-width: 600px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-    <button type="submit">Envoyer</button>
- </form>
-</section>
-
-<footer>
-  <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
-  <div class="social-icons">
-  <a href="https://www.linkedin.com/in/abdoulaye-yogo" target="_blank">LinkedIn</a> | 
-  <a href="https://github.com/Abdoulaye-YOGO" target="_blank">GitHub</a> | 
-  <a href="https://wa.me/22664246144" target="_blank">WhatsApp</a>
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
 </div>
+    <h2>Me Contacter</h2>
+    <form action="https://formspree.io/f/manjneqn" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
 
-</footer>
+  <footer>
+    <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/abdoulaye-yogo" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/Abdoulaye-YOGO" target="_blank">GitHub</a> |
+      <a href="https://wa.me/22664246144" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
 
-<script>
-  function filterProjects(category) {
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-      card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-    });
-  }
+  <script>
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = "block";
+            lightboxImg.src = this.src;
+        });
+        });
 
-  function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  }
+        document.querySelector('.close').addEventListener('click', function () {
+        document.getElementById('lightbox').style.display = "none";
+        });
 
-  function sendForm() {
-    alert("Merci ! Votre message a bien été envoyé.");
-    document.getElementById("contact-form").reset();
-    return false;
-  }
+        window.addEventListener('click', function (e) {
+        const lightbox = document.getElementById('lightbox');
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+        });
 </script>
-
 </body>
 </html>
