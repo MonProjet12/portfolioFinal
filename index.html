@@ -51,7 +51,107 @@
     nav a:hover::after {
       width: 100%;
     }
+     /* Section Hero */
+  #hero {
+    background: linear-gradient(135deg, #003366, #007bff);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
 
+  .hero-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-header span {
+    color: #f7f3f4;
+  }
+
+  .hero-header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 25px;
+  }
+
+  .btn-cv {
+    display: inline-block;
+    background: #ffcc00;
+    color: #003366;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-cv:hover {
+    background: #fff;
+    color: #003366;
+    transform: scale(1.05);
+  }
+
+  /* Section Compétences */
+  #competences {
+    padding: 80px 20px;
+    background: linear-gradient(to bottom right, #64afec, #e8f0ff);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #003366;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .card {
+    background: #ffffffb3;
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(40px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card ul li {
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    background: #eaf4ff;
+  }
+
+  /* Animation d’apparition */
+  .show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.8s ease-out;
+  }
     header {
       background: linear-gradient(to right, #003366, #005fa3);
       color: white;
@@ -503,11 +603,55 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <header>
-    <h1>👨‍💻 YOGO ABDOULAYE</h1>
-    <p>Ingénieur IT – Expert en Support IT, Réseaux, Développement Web, Infographie & Marketing Digital</p>
+ <section id="hero">
+  <header class="hero-header">
+    <h1>👨‍💻 <span>YOGO ABDOULAYE</span></h1>
+    <p>Ingénieur IT – Expert en Support Informatique, Réseaux, Développement Web, Infographie & Marketing Digital</p>
     <a href="moncv.pdf" target="_blank" class="btn-cv">📄 Voir mon CV</a>
   </header>
+</section>
+
+<section id="competences">
+  <h2 class="section-title">🚀 MES COMPÉTENCES</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>💻 Informatique & Développement Web</h3>
+      <ul>
+        <li>Support IT & maintenance</li>
+        <li>HTML / CSS / JS / PHP / MySQL</li>
+        <li>WordPress, sites vitrines, E-commerces, portfolios</li>
+        <li>Solutions web personnalisées</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🌐 Réseaux & Sécurité</h3>
+      <ul>
+        <li>Mikrotik, VSAT</li>
+        <li>Installation & dépannage réseau</li>
+        <li>ESET Remote Admin</li>
+        <li>Caméras de surveillance & sécurité électronique</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🎨 Infographie & Design</h3>
+      <ul>
+        <li>Canva, Suite Adobe</li>
+        <li>Conception d’affiches, logos, flyers</li>
+        <li>Visuels professionnels & créatifs</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📢 Marketing Digital</h3>
+      <ul>
+        <li>Community management</li>
+        <li>Publicité Meta Ads & Google Ads</li>
+        <li>Emailing (Mailchimp)</li>
+        <li>Analyse & suivi de performance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
   <section id="competences">
     <h2> MES COMPÉTENCES</h2>
@@ -840,6 +984,16 @@ galleryImages.forEach(img => {
 lightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
+ // Apparition fluide au scroll
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card)); 
 </script>
 </body>
 </html>
