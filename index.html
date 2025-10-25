@@ -36,6 +36,25 @@
       font-weight: 500;
       position: relative;
     }
+        .profile-photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+      margin-bottom: 15px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+    from {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+    }
+    to {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.8);
+    }
+    }
 
     nav a::after {
       content: "";
