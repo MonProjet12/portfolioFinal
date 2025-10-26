@@ -36,25 +36,6 @@
       font-weight: 500;
       position: relative;
     }
-        .profile-photo {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-      margin-bottom: 15px;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-    from {
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-    }
-    to {
-    box-shadow: 0 0 30px rgba(0, 123, 255, 0.8);
-    }
-    }
 
     nav a::after {
       content: "";
@@ -611,6 +592,57 @@
 .btn-cv:hover {
   background-color: #c2185b;
 }
+
+    .profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+  .hero-header h1 {
+    font-size: 2rem;
+  }
+  .hero-header p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  .hero-header h1 {
+    font-size: 1.6rem;
+  }
+  .hero-header p {
+    font-size: 0.95rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -624,14 +656,14 @@
 
  <section id="hero">
   <header class="hero-header">
-    <div class="profile">
-      <img src="https://imgur.com/u2qTvlK.jpg" alt="Photo de Yogo Abdoulaye" class="profile-pic">
-      <div class="info">
-        <h1> <span>YOGO ABDOULAYE</span></h1>
-        <p>Ingénieur IT – Expert en Support Informatique, Réseaux, Développement Web, Infographie & Marketing Digital</p>
-        <a href="moncv.pdf" target="_blank" class="btn-cv">📄 Voir mon CV</a>
-      </div>
+   <div class="profile-container">
+    <img src="https://imgur.com/u2qTvlK.jpg" alt="Photo de Yogo Abdoulaye" class="profile-pic">
+    <div class="header-text">
+      <h1>👨‍💻 YOGO ABDOULAYE</h1>
+      <p>Ingénieur IT – Expert en Support IT, Réseaux, Développement Web, Infographie & Marketing Digital</p>
+      <a href="moncv.pdf" target="_blank" class="btn-cv">📄 Voir mon CV</a>
     </div>
+  </div>
   </header>
 </section>
 
