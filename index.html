@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yogo Abdoulaye - Portfolio</title>
+  <title>Yogo Abdoulaye - Portfolio Professionnel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #003366;
+      --secondary: #007bff;
+      --accent: #ff6b6b;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gradient: linear-gradient(135deg, #003366, #007bff);
+      --gradient-accent: linear-gradient(135deg, #ff6b6b, #ff8e53);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,20 +26,25 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4f8;
-      color: #333;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
+    /* Navigation */
     nav {
-      background: #003366;
+      background: rgba(0, 51, 102, 0.95);
+      backdrop-filter: blur(10px);
       padding: 20px;
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 1000;
       display: flex;
       justify-content: center;
       animation: slideDown 0.5s ease;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
@@ -35,387 +53,323 @@
       text-decoration: none;
       font-weight: 500;
       position: relative;
+      padding: 8px 0;
+      transition: var(--transition);
     }
 
     nav a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -5px;
+      bottom: 0;
       height: 2px;
       width: 0;
-      background: white;
+      background: var(--accent);
       transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     nav a:hover::after {
       width: 100%;
     }
-     /* Section Hero */
-  #hero {
-    background: linear-gradient(135deg, #003366, #007bff);
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-  }
 
-  .hero-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-  }
-
-  .hero-header span {
-    color: #f7f3f4;
-  }
-
-  .hero-header p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 25px;
-  }
-
-  .btn-cv {
-    display: inline-block;
-    background: #ffcc00;
-    color: #003366;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .btn-cv:hover {
-    background: #fff;
-    color: #003366;
-    transform: scale(1.05);
-  }
-
-  /* Section Compétences */
-  #competences {
-    padding: 80px 20px;
-    background: linear-gradient(to bottom right, #64afec, #e8f0ff);
-  }
-
-  .section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #003366;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  .card {
-    background: #ffffffb3;
-    backdrop-filter: blur(6px);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.4s ease;
-    opacity: 0;
-    transform: translateY(40px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  .card h3 {
-    color: #0056b3;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-
-  .card ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .card ul li {
-    margin-bottom: 8px;
-    color: #333;
-  }
-
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    background: #eaf4ff;
-  }
-
-  /* Animation d’apparition */
-  .show {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: all 0.8s ease-out;
-  }
-    header {
-      background: linear-gradient(to right, #003366, #005fa3);
+    /* Section Hero */
+    #hero {
+      background: var(--gradient);
       color: white;
-      padding: 100px 20px;
       text-align: center;
-      animation: fadeIn 1s ease;
+      padding: 180px 20px 100px;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
       animation: fadeInDown 1s ease;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-    header p {
-      font-size: 1.5rem;
+    .hero-header span {
+      color: #ffcc00;
+    }
+
+    .hero-header p {
+      font-size: 1.4rem;
       max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      animation: fadeInUp 1s ease;
+      margin: 0 auto 30px;
+      animation: fadeInUp 1s ease 0.3s both;
+      opacity: 0.9;
     }
 
-    .cv-button {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 12px 24px;
-      background: #ffffff;
-      color: #003366;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .cv-button:hover {
-      background: #eeeeee;
-      transform: scale(1.05);
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: 60px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    section h2 {
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
       text-align: center;
-      font-size: 2rem;
-      color: #003366;
       margin-bottom: 40px;
+      animation: fadeIn 1s ease 0.6s both;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
+
+    .btn-cv {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+      transition: var(--transition);
+      animation: fadeInUp 1s ease 0.9s both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cv::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+
+    .btn-cv:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+    }
+
+    .btn-cv:hover::before {
+      left: 100%;
+    }
+
+    /* Section Compétences */
+    #competences {
+      padding: 100px 20px;
+      background: var(--light);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: var(--primary);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .card {
-      background: #f4faff;
-      padding: 20px;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(40px);
+      border-top: 4px solid var(--secondary);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 0;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .card h3 {
-      color: #003366;
-      margin-bottom: 10px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 1.4rem;
+      transition: var(--transition);
     }
 
     .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li {
+      margin-bottom: 12px;
+      color: var(--dark);
+      transition: var(--transition);
+      position: relative;
       padding-left: 20px;
-      line-height: 1.6;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); }
-      to { transform: translateY(0); }
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0;
+    .card ul li::before {
+      content: "▸";
+      position: absolute;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      display: none;
-    }
-
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 8px;
-    }
-
-    .video-embed {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .video-embed iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      margin: 10px 0;
-    }
-
-    .contact a {
-      color: #005fa3;
-      text-decoration: none;
+      color: var(--secondary);
       font-weight: bold;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
-    footer {
-        background-color: var(--primary);
-        color: white;
-        text-align: center;
-        padding: 30px 20px;
-        margin-top: 40px;
-        }
-        .social-icons a {
-        color: white;
-        margin: 0 10px;
-        text-decoration: none;
-        font-weight: bold;
-        }
-                form {
-        max-width: 600px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        }
-        input, textarea {
-        padding: 12px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        }
-        button {
-        padding: 12px;
-        background-color: var(--primary);
-        color: rgb(56, 31, 192);
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 1rem;
-        }
-        button:hover {
-        background-color: #990014;
-        }
-         .project-section {
+
+    .card:hover::before {
+      opacity: 0.03;
+    }
+
+    .card:hover h3 {
+      color: var(--secondary);
+    }
+
+    /* Animation d'apparition */
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    }
+
+    /* Section Projets */
+    .project-section {
+      padding: 100px 20px;
+      background: #f8f9fa;
       animation: fadeInUp 1s ease;
     }
 
     .filter-menu {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     .filter-menu button {
-      background: #003366;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 12px 25px;
       margin: 5px;
-      border-radius: 20px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: var(--transition);
+      font-weight: 500;
     }
 
     .filter-menu button:hover,
     .filter-menu button.active {
-      background: #005fa3;
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
       margin-bottom: 40px;
     }
 
     .project-card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      transition: var(--transition);
       cursor: pointer;
+      position: relative;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1;
     }
 
     .project-card img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 220px;
+      object-fit: cover;
+      transition: var(--transition);
     }
 
     .project-content {
-      padding: 20px;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
     }
 
     .project-content h3 {
-      color: #003366;
+      color: var(--primary);
       margin-bottom: 10px;
+      font-size: 1.3rem;
     }
 
     .project-content p {
@@ -423,590 +377,642 @@
       margin-bottom: 10px;
     }
 
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card:hover::before {
+      opacity: 0.9;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card:hover .project-content h3,
+    .project-card:hover .project-content p {
+      color: white;
+    }
+
+    /* Galerie */
     .gallery-projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .gallery-projects img {
       width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: var(--transition);
       cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .gallery-projects img:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
+    /* Section Vidéos */
+    #videos {
+      padding: 100px 20px;
+      background: white;
+    }
+
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .video-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-item iframe {
       width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
+      height: 220px;
+      border: none;
     }
 
-    .modal-content {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 90%;
-      position: relative;
+    .video-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
     }
 
-    .modal-content h3 {
-      color: #003366;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #333;
-    }
-     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-
+    /* Section Contact */
     #contact {
-      background: #fff;
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 60px auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      animation: fadeInUp 1s ease;
+      padding: 100px 20px;
+      background: var(--gradient);
+      color: white;
     }
 
     #contact h2 {
       text-align: center;
-      font-size: 2rem;
-      color: #003366;
-      margin-bottom: 30px;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      position: relative;
     }
 
-    .contact p {
+    #contact h2::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       font-size: 1.1rem;
-      margin: 10px 0;
-      color: #333;
-      text-align: center;
     }
 
-    .contact a {
-      color: #005fa3;
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--accent);
+      width: 40px;
+    }
+
+    .contact-item a {
+      color: white;
       text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      max-width: 600px;
-      margin: 30px auto;
+      gap: 20px;
     }
 
     form input,
     form textarea {
-      padding: 12px 15px;
+      padding: 15px;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
       font-size: 1rem;
-      transition: border-color 0.3s ease;
+      transition: var(--transition);
     }
 
     form input:focus,
     form textarea:focus {
-      border-color: #005fa3;
       outline: none;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
     }
 
     form button {
-      padding: 12px 20px;
-      background: #003366;
-      color: #fff;
+      padding: 15px;
+      background: var(--gradient-accent);
+      color: white;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
     }
 
     form button:hover {
-      background: #005fa3;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
     }
 
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #003366;
+      background: var(--primary);
       color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .social-icons {
+      margin: 20px 0;
     }
 
     .social-icons a {
       color: white;
-      margin: 0 10px;
+      margin: 0 15px;
+      font-size: 1.5rem;
       text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
     }
 
     .social-icons a:hover {
-      text-decoration: underline;
+      color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      animation: zoomIn 0.5s ease;
+    }
+
+    .modal-content h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      color: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      
+      nav a {
+        margin: 5px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .hero-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-header p {
+        font-size: 1.1rem;
+      }
+      
+      .profile-pic {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
       }
     }
-    .btn-cv {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #e91e63;
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
 
-.btn-cv:hover {
-  background-color: #c2185b;
-}
-
-    .profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-}
-
-.profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .profile-pic {
-    width: 140px;
-    height: 140px;
-  }
-  .hero-header h1 {
-    font-size: 2rem;
-  }
-  .hero-header p {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-pic {
-    width: 120px;
-    height: 120px;
-  }
-  .hero-header h1 {
-    font-size: 1.6rem;
-  }
-  .hero-header p {
-    font-size: 0.95rem;
-  }
-}
-
+    @media (max-width: 480px) {
+      .hero-header h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-header p {
+        font-size: 1rem;
+      }
+      
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+      }
+      
+      .btn-cv {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#competences">COMPETENCES</a>
-    <a href="#galerie">GALERIE</a>
-    <a href="#videos">VIDEOS</a>
-    <a href="#contact">CONTACTS</a>
+    <a href="#competences">COMPÉTENCES</a>
+    <a href="#projets">PROJETS</a>
+    <a href="#videos">VIDÉOS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 
- <section id="hero">
-  <header class="hero-header">
-   <div class="profile-container">
-    <img src="https://imgur.com/u2qTvlK.jpg" alt="Photo de Yogo Abdoulaye" class="profile-pic">
-    <div class="header-text">
-      <h1> YOGO ABDOULAYE</h1>
-      <p>Ingénieur IT – Expert en Support IT, Réseaux, Développement Web, Infographie & Marketing Digital</p>
-      <a href="moncv.pdf" target="_blank" class="btn-cv">📄 Voir mon CV</a>
-    </div>
-  </div>
-  </header>
-</section>
-
-<section id="competences">
-  <h2 class="section-title">🚀 MES COMPÉTENCES</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>💻 Informatique & Développement Web</h3>
-      <ul>
-        <li>Support IT & maintenance</li>
-        <li>HTML / CSS / JS / PHP / MySQL</li>
-        <li>WordPress, sites vitrines, E-commerces, portfolios</li>
-        <li>Solutions web personnalisées</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🌐 Réseaux & Sécurité</h3>
-      <ul>
-        <li>Mikrotik, VSAT</li>
-        <li>Installation & dépannage réseau</li>
-        <li>ESET Remote Admin</li>
-        <li>Caméras de surveillance & sécurité électronique</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🎨 Infographie & Design</h3>
-      <ul>
-        <li>Canva, Suite Adobe</li>
-        <li>Conception d’affiches, logos, flyers</li>
-        <li>Visuels professionnels & créatifs</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>📢 Marketing Digital</h3>
-      <ul>
-        <li>Community management</li>
-        <li>Publicité Meta Ads & Google Ads</li>
-        <li>Emailing (Mailchimp)</li>
-        <li>Analyse & suivi de performance</li>
-      </ul>
-    </div>
-  </div>
-</section> 
- <section class="project-section" id="projets">
-  <h2>📁 Projets Réalisés – Maquettes pour Site Web, Application & Conceptions Graphiques</h2>
-
-  <div class="filter-menu">
-    <button class="active" onclick="filterProjects('all')">Tous</button>
-    <button onclick="filterProjects('web')">Web</button>
-    <button onclick="filterProjects('design')">Design</button>
-  </div>
-
-  <div class="project-grid">
-    <div class="project-card" data-category="web" onclick="openModal('modalFastCare')">
-      <img src="https://i.imgur.com/XcZEThJ.png" alt="FastCare">
-      <div class="project-content">
-        <h3>FastCare – Application médicale</h3>
-        <p>Outil : Figma | Juin 2025</p>
-        <p>Interface mobile pour consultations médicales et gestion de patients.</p>
+  <section id="hero">
+    <header class="hero-header">
+      <div class="profile-container">
+        <img src="https://i.imgur.com/u2qTvlK.jpg" alt="Photo de Yogo Abdoulaye" class="profile-pic">
+        <div class="header-text">
+          <h1>YOGO ABDOULAYE</h1>
+          <p>Ingénieur IT – Expert en Support IT, Réseaux, Développement Web, Infographie & Marketing Digital</p>
+          <a href="moncv.pdf" target="_blank" class="btn-cv"><i class="fas fa-download"></i> Télécharger mon CV</a>
+        </div>
       </div>
-    </div>
+    </header>
+  </section>
 
-    <div class="project-card" data-category="design" onclick="openModal('modalFASsHOP')">
-      <img src="https://i.imgur.com/jPx3Jwj.png" alt="FASsHOP">
-      <div class="project-content">
-        <h3>FASsHOP – Boutique en ligne</h3>
-        <p>Outil : Figma | Juin 2025</p>
-        <p>eCommerce simple et sécurisé pour l’achat de vêtements en ligne.</p>
+  <section id="competences">
+    <h2 class="section-title">🚀 MES COMPÉTENCES</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><i class="fas fa-laptop-code"></i> Informatique & Développement Web</h3>
+        <ul>
+          <li>Support IT & maintenance</li>
+          <li>HTML / CSS / JS / PHP / MySQL</li>
+          <li>WordPress, sites vitrines, E-commerces, portfolios</li>
+          <li>Solutions web personnalisées</li>
+        </ul>
       </div>
-    </div>
-  </div>
-  <div class="gallery-projects">
-    <img src="https://i.imgur.com/uwy6JzT.jpg" alt="Image 1">
-    <img src="https://i.imgur.com/yypq8nY.jpg" alt="Image 2">
-    <img src="https://i.imgur.com/d8DOGQJ.jpg" alt="Image 3">
-    <img src="https://i.imgur.com/tsdXW1M.jpg" alt="Image 4">
-    <img src="https://i.imgur.com/yypq8nY.jpg" alt="Image 2">
-    <img src="https://i.imgur.com/d8DOGQJ.jpg" alt="Image 3">
-    <img src="https://i.imgur.com/tsdXW1M.jpg" alt="Image 4">
-    <img src="https://i.imgur.com/lOr35FD.jpg" alt="Image 5">
-    <img src="https://i.imgur.com/sTYJAuG.jpg" alt="Image 6">
-    <img src="https://i.imgur.com/RZ7VAej.jpg" alt="Image 8">
-    <img src="https://i.imgur.com/MAfKQLV.jpg" alt="Image 9">
-    <img src="https://i.imgur.com/vN2Mm45.jpg" alt="Image 10">
-    <img src="https://i.imgur.com/1n1Ss0f.jpg" alt="Image 12">
-    <img src="https://i.imgur.com/Tol8OgA.jpg" alt="Image 13">
-    <img src="https://i.imgur.com/y9WBJlA.jpg" alt="Image 14">
-    <img src="https://i.imgur.com/aoqVTOg.jpg" alt="Image 15">
-    <img src="https://i.imgur.com/0hwwpAO.jpg" alt="Image 16">
-    <img src="https://i.imgur.com/GFQ1TPr.jpg" alt="Image 17">
-    <img src="https://i.imgur.com/VmikxMT.jpg" alt="Image 18">
-    <img src="https://i.imgur.com/TcMXpFW.jpg" alt="Image 19">
-    <img src="https://i.imgur.com/MFG5atw.jpg" alt="Image 20">
-    <img src="https://i.imgur.com/MITiut3.jpg" alt="Image 21">
-    <img src="https://i.imgur.com/NS8H6cE.jpg" alt="Image 22">
-    <img src="https://i.imgur.com/88gtG1J.jpg" alt="Image 23">  
-    <img src="https://imgur.com/PHWaVYS.jpg" alt="Image 24"> 
-    <img src="https://imgur.com/IKOlzaA.jpg" alt="Image 25"> 
-    <img src="https://imgur.com/uEZyElx.jpg" alt="Image 26">
-    <img src="https://imgur.com/kIyARkp.jpg" alt="Image 27">   
-    <img src="https://imgur.com/gEfOmsH.jpg" alt="Image 28">   
-  </div>
-</section>
-
-<!-- Modals -->
-<div id="modalFastCare" class="modal" onclick="closeModal(event)">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal(event)">&times;</span>
-    <h3>FastCare – Application médicale</h3>
-    <p>Interface mobile pour consultations médicales et gestion de patients.</p>
-    <a href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW" target="_blank">Voir la maquette</a>
-  </div>
-</div>
-
-<div id="modalFASsHOP" class="modal" onclick="closeModal(event)">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeModal(event)">&times;</span>
-    <h3>FASsHOP – Boutique en ligne</h3>
-    <p>eCommerce simple et sécurisé pour l’achat de vêtements en ligne.</p>
-    <a href="https://www.figma.com/design/6BQNteoi1zuk6yDbw49FPe/ProjetEcommerceMode" target="_blank">Voir la maquette</a>
-  </div>
-</div>
-
-<script>
-function openModal(id) {
-  document.getElementById(id).style.display = 'flex';
-}
-
-function closeModal(event) {
-  if (event.target.classList.contains('modal') || event.target.classList.contains('close-modal')) {
-    document.querySelectorAll('.modal').forEach(modal => {
-      modal.style.display = 'none';
-    });
-  }
-}
-
-function filterProjects(category) {
-  document.querySelectorAll('.filter-menu button').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    const isVisible = category === 'all' || card.dataset.category === category;
-    card.style.display = isVisible ? 'block' : 'none';
-  });
-}
-</script>
-
-  <section id="galerie">
-    <h2>🖼️ Galerie</h2>
-    <div class="gallery">
-      <!-- Les images -->
-      <div class="gallery-item"><img src="https://i.imgur.com/uwy6JzT.jpg" alt="Image 1"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/yypq8nY.jpg" alt="Image 2"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/d8DOGQJ.jpg" alt="Image 3"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/tsdXW1M.jpg" alt="Image 4"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/lOr35FD.jpg" alt="Image 5"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/sTYJAuG.jpg" alt="Image 6"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/RZ7VAej.jpg" alt="Image 8"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/MAfKQLV.jpg" alt="Image 9"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/vN2Mm45.jpg" alt="Image 10"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/1n1Ss0f.jpg" alt="Image 12"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/Tol8OgA.jpg" alt="Image 13"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/y9WBJlA.jpg" alt="Image 14"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/aoqVTOg.jpg" alt="Image 15"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/0hwwpAO.jpg" alt="Image 16"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/GFQ1TPr.jpg" alt="Image 17"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/VmikxMT.jpg" alt="Image 18"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/TcMXpFW.jpg" alt="Image 19"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/MFG5atw.jpg" alt="Image 20"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/MITiut3.jpg" alt="Image 21"></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/NS8H6cE.jpg" alt="Image 22"></div> 
-      <div class="gallery-item"><img src="https://i.imgur.com/88gtG1J.jpg" alt="Image 23"></div>
-      <div class="gallery-item"><img src="https://imgur.com/uEZyElx.jpg" alt="Image 24"></div> 
-      <div class="gallery-item"><img src="https://imgur.com/IKOlzaA.jpg" alt="Image 25"></div> 
-      <div class="gallery-item"><img src="https://imgur.com/kIyARkp.jpg" alt="Image 26"></div> 
-      <div class="gallery-item"><img src="https://imgur.com/gEfOmsH.jpg" alt="Image 27"></div> 
-       <div class="gallery-item"><img src="https://imgur.com/PHWaVYS.jpg" alt="Image 28"></div> 
-
-    </div>
-    <div class="lightbox" id="lightbox">
-      <img src="" alt="Zoomed Image">
+      <div class="card">
+        <h3><i class="fas fa-network-wired"></i> Réseaux & Sécurité</h3>
+        <ul>
+          <li>Mikrotik, VSAT</li>
+          <li>Installation & dépannage réseau</li>
+          <li>ESET Remote Admin</li>
+          <li>Caméras de surveillance & sécurité électronique</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-palette"></i> Infographie & Design</h3>
+        <ul>
+          <li>Canva, Suite Adobe</li>
+          <li>Conception d'affiches, logos, flyers</li>
+          <li>Visuels professionnels & créatifs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-bullhorn"></i> Marketing Digital</h3>
+        <ul>
+          <li>Community management</li>
+          <li>Publicité Meta Ads & Google Ads</li>
+          <li>Emailing (Mailchimp)</li>
+          <li>Analyse & suivi de performance</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-<section id="videos" style="max-width: 1100px; margin: 50px auto;">
-        <h2 style="text-align:center; color:#003366;">🎥 Démo Vidéo</h2>
+  <section class="project-section" id="projets">
+    <h2 class="section-title">📁 PROJETS RÉALISÉS</h2>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-                
-        <!-- Vidéo 1 -->
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/L1LLu3Cxltc"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Présentation FastCare</p>
-        </div>
-
-        <!-- Vidéo 2 -->
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/s0yc_rcyI8I"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
-        </div>
-
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://youtube.com/embed/fYDodP37uoM"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
-        </div>
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/K7uSPWNmHBU"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
-        </div>
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/zYm3HcIycVc"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publicitaire </p>
-        </div>
-
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/QyqmQDWOHyg"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot Publicitaire</p>
-        </div>
-
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/w5AJKRwsZZ0"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot publiciaire </p>
-        </div>
-
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://youtube.com/embed/5NER5xc2CCM"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot Publicitaire</p>
-        </div>
-
-        <div style="flex: 1 1 500px; max-width: 500px;">
-            <iframe width="100%" height="280"
-                    src="https://www.youtube.com/embed/5pkp2l40A2Q"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-            </iframe>
-            <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot Publicitaire</p>
-        </div>
-
-      <div style="flex: 1 1 500px; max-width: 500px;">
-          <iframe width="100%" height="280"
-                  src="https://youtube.com/embed/Z30QYe7BkdE"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
-          </iframe>
-          <p style="text-align:center; font-weight: bold; color: #003366; margin-top: 10px;">Spot Publicitaire</p>
-      </div>
-      
+    <div class="filter-menu">
+      <button class="active" onclick="filterProjects('all')">Tous</button>
+      <button onclick="filterProjects('web')">Web</button>
+      <button onclick="filterProjects('design')">Design</button>
     </div>
-</section>
 
-<section id="contact">
-  <h2>📞 Contact</h2>
-  <div class="contact">
-    <p>📧 Email : <a href="mailto:yogo.abdoulaye@gmail.com">yogo.abdoulaye@gmail.com</a></p>
-    <p>📱 Téléphone : <a href="tel:+22664246144">+226 64 24 61 44 / 53 65 43 89</a></p>
-    <p>🌍 LinkedIn : <a href="https://www.linkedin.com/in/yogoabdoulaye" target="_blank">linkedin.com/in/yogoabdoulaye</a></p>
+    <div class="project-grid">
+      <div class="project-card" data-category="web" onclick="openModal('modalFastCare')">
+        <img src="https://i.imgur.com/XcZEThJ.png" alt="FastCare">
+        <div class="project-content">
+          <h3>FastCare – Application médicale</h3>
+          <p>Outil : Figma | Juin 2025</p>
+          <p>Interface mobile pour consultations médicales et gestion de patients.</p>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="design" onclick="openModal('modalFASsHOP')">
+        <img src="https://i.imgur.com/jPx3Jwj.png" alt="FASsHOP">
+        <div class="project-content">
+          <h3>FASsHOP – Boutique en ligne</h3>
+          <p>Outil : Figma | Juin 2025</p>
+          <p>eCommerce simple et sécurisé pour l'achat de vêtements en ligne.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="margin-top: 60px;">🎨 GALERIE DE CRÉATIONS</h3>
+    <div class="gallery-projects">
+      <img src="https://i.imgur.com/uwy6JzT.jpg" alt="Image 1">
+      <img src="https://i.imgur.com/yypq8nY.jpg" alt="Image 2">
+      <img src="https://i.imgur.com/d8DOGQJ.jpg" alt="Image 3">
+      <img src="https://i.imgur.com/tsdXW1M.jpg" alt="Image 4">
+      <img src="https://i.imgur.com/lOr35FD.jpg" alt="Image 5">
+      <img src="https://i.imgur.com/sTYJAuG.jpg" alt="Image 6">
+      <img src="https://i.imgur.com/RZ7VAej.jpg" alt="Image 8">
+      <img src="https://i.imgur.com/MAfKQLV.jpg" alt="Image 9">
+      <img src="https://i.imgur.com/vN2Mm45.jpg" alt="Image 10">
+      <img src="https://i.imgur.com/1n1Ss0f.jpg" alt="Image 12">
+      <img src="https://i.imgur.com/Tol8OgA.jpg" alt="Image 13">
+      <img src="https://i.imgur.com/y9WBJlA.jpg" alt="Image 14">
+      <img src="https://i.imgur.com/aoqVTOg.jpg" alt="Image 15">
+      <img src="https://i.imgur.com/0hwwpAO.jpg" alt="Image 16">
+      <img src="https://i.imgur.com/GFQ1TPr.jpg" alt="Image 17">
+      <img src="https://i.imgur.com/VmikxMT.jpg" alt="Image 18">
+      <img src="https://i.imgur.com/TcMXpFW.jpg" alt="Image 19">
+      <img src="https://i.imgur.com/MFG5atw.jpg" alt="Image 20">
+      <img src="https://i.imgur.com/MITiut3.jpg" alt="Image 21">
+      <img src="https://i.imgur.com/NS8H6cE.jpg" alt="Image 22">
+      <img src="https://i.imgur.com/88gtG1J.jpg" alt="Image 23">  
+      <img src="https://i.imgur.com/PHWaVYS.jpg" alt="Image 24"> 
+      <img src="https://i.imgur.com/IKOlzaA.jpg" alt="Image 25"> 
+      <img src="https://i.imgur.com/uEZyElx.jpg" alt="Image 26">
+      <img src="https://i.imgur.com/kIyARkp.jpg" alt="Image 27">   
+      <img src="https://i.imgur.com/gEfOmsH.jpg" alt="Image 28">   
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="modalFastCare" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(event)">&times;</span>
+      <h3>FastCare – Application médicale</h3>
+      <p>Interface mobile pour consultations médicales et gestion de patients.</p>
+      <a href="https://www.figma.com/proto/KzyZSGgahReD91FeIlcSwW" target="_blank" class="btn-cv" style="display: inline-block; margin-top: 15px;">Voir la maquette</a>
+    </div>
   </div>
-  <h2>💬 Me Contacter</h2>
-  <form action="https://formspree.io/f/manjneqn" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-</section>
 
-<footer>
-  <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/abdoulaye-yogo" target="_blank">LinkedIn</a> |
-    <a href="https://github.com/MonProjet12" target="_blank">GitHub</a> |
-    <a href="https://wa.me/22664246144" target="_blank">WhatsApp</a>
+  <div id="modalFASsHOP" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(event)">&times;</span>
+      <h3>FASsHOP – Boutique en ligne</h3>
+      <p>eCommerce simple et sécurisé pour l'achat de vêtements en ligne.</p>
+      <a href="https://www.figma.com/design/6BQNteoi1zuk6yDbw49FPe/ProjetEcommerceMode" target="_blank" class="btn-cv" style="display: inline-block; margin-top: 15px;">Voir la maquette</a>
+    </div>
   </div>
-</footer>
 
+  <section id="videos">
+    <h2 class="section-title" style="color: white;">🎥 DÉMOS VIDÉO</h2>
+    <div class="video-container">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/L1LLu3Cxltc" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Présentation FastCare</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/s0yc_rcyI8I" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Spot publicitaire</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/fYDodP37uoM" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Spot publicitaire</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/K7uSPWNmHBU" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Spot publicitaire</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/zYm3HcIycVc" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Spot publicitaire</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/QyqmQDWOHyg" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Spot publicitaire</div>
+      </div>
+    </div>
+  </section>
 
-<script>
-const galleryImages = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
+  <section id="contact">
+    <h2>📞 CONTACT</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:yogo.abdoulaye@gmail.com">yogo.abdoulaye@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+22664246144">+226 64 24 61 44 / 53 65 43 89</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-globe"></i>
+          <a href="https://www.linkedin.com/in/yogoabdoulaye" target="_blank">linkedin.com/in/yogoabdoulaye</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3 style="margin-bottom: 20px; text-align: center;">💬 ENVOYEZ-MOI UN MESSAGE</h3>
+        <form action="https://formspree.io/f/manjneqn" method="POST">
+          <input type="text" name="name" placeholder="Votre nom" required>
+          <input type="email" name="email" placeholder="Votre email" required>
+          <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+          <button type="submit">Envoyer <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-    });
-});
+  <footer>
+    <p>© 2025 Yogo Abdoulaye. Tous droits réservés.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/abdoulaye-yogo" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/MonProjet12" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/22664246144" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
 
-lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
- // Apparition fluide au scroll
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
+  <script>
+    // Animation au défilement
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    cards.forEach(card => observer.observe(card));
+
+    // Fonctions pour les modals
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(event) {
+      if (event.target.classList.contains('modal') || event.target.classList.contains('close-modal')) {
+        document.querySelectorAll('.modal').forEach(modal => {
+          modal.style.display = 'none';
+        });
       }
+    }
+
+    // Filtrage des projets
+    function filterProjects(category) {
+      document.querySelectorAll('.filter-menu button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        const isVisible = category === 'all' || card.dataset.category === category;
+        card.style.display = isVisible ? 'block' : 'none';
+      });
+    }
+
+    // Lightbox pour la galerie
+    const galleryImages = document.querySelectorAll('.gallery-projects img');
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        const lightbox = document.createElement('div');
+        lightbox.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2000;
+          cursor: zoom-out;
+        `;
+        
+        const lightboxImg = document.createElement('img');
+        lightboxImg.src = img.src;
+        lightboxImg.style.cssText = `
+          max-width: 90vw;
+          max-height: 90vh;
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        `;
+        
+        lightbox.appendChild(lightboxImg);
+        document.body.appendChild(lightbox);
+        
+        lightbox.addEventListener('click', () => {
+          document.body.removeChild(lightbox);
+        });
+      });
     });
-  }, { threshold: 0.2 });
-  cards.forEach(card => observer.observe(card)); 
-</script>
+  </script>
 </body>
 </html>
